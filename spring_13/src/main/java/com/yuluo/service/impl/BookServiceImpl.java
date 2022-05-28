@@ -9,7 +9,7 @@ import org.springframework.stereotype.Service;
 @Service
 public class BookServiceImpl implements BookService {
     @Autowired
-    @Qualifier("bookDao1")
+    @Qualifier("bookDao")
     private BookDao bookDao;
 
 
