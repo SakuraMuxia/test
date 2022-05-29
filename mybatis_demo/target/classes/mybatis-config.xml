@@ -17,6 +17,8 @@
     </environments>
     <mappers>
         <!--加载sql的映射文件-->
-        <mapper resource="com/yuluo/mapper/UserMapper.xml"/>
+<!--        <mapper resource="com/yuluo/mapper/UserMapper.xml"/>-->
+        <!--使用包扫描的方式加载sql的映射文件，原理是Mapper的代理方式-->
+        <package name="com.yuluo.mapper"/>
     </mappers>
 </configuration>
