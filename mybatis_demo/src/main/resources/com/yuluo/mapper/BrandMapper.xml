@@ -2,14 +2,17 @@
 <!DOCTYPE mapper
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
     <!--名称空间-->
-<mapper namespace="com.yuluo.mapper.UserMapper">
-    <select id="selectAll" resultType="user">
-        select * from tb_user;
-    </select>
-    <select id="selectById" resultType="user">
+<mapper namespace="com.yuluo.mapper.BrandMapper">
+    
+    <!--statement
+    没有提示sql数据库名称的话，设置sql方言
+    -->
+    <select id="selectAll" resultType="brand">
         select *
-        from tb_user where id = #{id};
+        from tb_brand;
     </select>
+    
 
 </mapper>
