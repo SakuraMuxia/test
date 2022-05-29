@@ -6,7 +6,7 @@ import org.springframework.stereotype.Repository;
 
 @Repository("bookDao")
 public class BookDaoImpl implements BookDao {
-    @Value()
+    @Value("${name}")
     private String name;
 
     @Override
