@@ -4,7 +4,7 @@ public class Brand {
     // id 主键
     private Integer id;
     // 品牌名称
-    private String brand_name;
+    private String brandName;
     // 企业名称
     private String companyName;
     // 排序字段
@@ -14,12 +14,12 @@ public class Brand {
     // 状态：0：禁用  1：启用
     private Integer status;
 
-    public String getBrand_name() {
-        return brand_name;
+    public String getBrandName() {
+        return brandName;
     }
 
-    public void setBrand_name(String brand_name) {
-        this.brand_name = brand_name;
+    public void setBrandName(String brandName) {
+        this.brandName = brandName;
     }
 
     public String getCompanyName() {
@@ -66,7 +66,7 @@ public class Brand {
     public String toString() {
         return "Brand{" +
                 "id=" + id +
-                ", brand_name='" + brand_name + '\'' +
+                ", brandName='" + brandName + '\'' +
                 ", companyName='" + companyName + '\'' +
                 ", ordered=" + ordered +
                 ", description='" + description + '\'' +
