@@ -22,4 +22,7 @@ public interface BrandMapper {
 
     //条件查询的方法3 Map集合参数
     List<Brand> selectByCondition(Map map);
+
+    //动态条件查询的方法4 Map集合参数
+    List<Brand> selectByConditionDynamic(Map map);
 }

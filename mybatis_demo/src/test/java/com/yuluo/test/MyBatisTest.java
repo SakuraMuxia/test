@@ -10,7 +10,9 @@ import org.junit.Test;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class MyBatisTest {
     @Test
@@ -103,5 +105,68 @@ public class MyBatisTest {
         //5 释放资源
         sqlSession.close();
     }
+
+    /*通过条件查询测试类3*/
+    @Test
+    public void testSelectByCondition3() throws IOException {
+        int status = 0;
+        String companyName = "三只松鼠";
+        String brandName = "三只松鼠";
+        //处理参数
+        companyName = "%"+companyName+"%";
+        brandName = "%"+brandName+"%";
+        //封装对象
+        Map map = new HashMap();
+        //设置map键的名称和值
+        map.put("status",status);
+        map.put("companyName",companyName);
+        map.put("brandName",brandName);
+
+        //1 获取sqlsessionFactory
+        String resource = "mybatis-config.xml";
+        InputStream inputStream = Resources.getResourceAsStream(resource);
+        SqlSessionFactory sqlSessionFactory = new SqlSessionFactoryBuilder().build(inputStream);
+        //2 获取sqlSession对象
+        SqlSession sqlSession = sqlSessionFactory.openSession();
+        //3 获取Mapper接口的代理对象
+        BrandMapper brandMapper = sqlSession.getMapper(BrandMapper.class);
+        //4 执行方法
+        List<Brand> brands = brandMapper.selectByCondition(map);
+        System.out.println(brands);
+        //5 释放资源
+        sqlSession.close();
+    }
+
+    /*通过条件查询测试类4-动态查询*/
+    @Test
+    public void testSelectByCondition4() throws IOException {
+        int status = 0;
+        String companyName = "小米";
+        String brandName = "小米";
+        //处理参数
+        companyName = "%"+companyName+"%";
+        brandName = "%"+brandName+"%";
+        //封装对象
+        Map map = new HashMap();
+        //设置map键的名称和值
+        //map.put("status",status);
+        map.put("companyName",companyName);
+        map.put("brandName",brandName);
+
+        //1 获取sqlsessionFactory
+        String resource = "mybatis-config.xml";
+        InputStream inputStream = Resources.getResourceAsStream(resource);
+        SqlSessionFactory sqlSessionFactory = new SqlSessionFactoryBuilder().build(inputStream);
+        //2 获取sqlSession对象
+        SqlSession sqlSession = sqlSessionFactory.openSession();
+        //3 获取Mapper接口的代理对象
+        BrandMapper brandMapper = sqlSession.getMapper(BrandMapper.class);
+        //4 执行方法
+        List<Brand> brands = brandMapper.selectByConditionDynamic(map);
+        System.out.println(brands);
+        //5 释放资源
+        sqlSession.close();
+    }
+
 
 }
