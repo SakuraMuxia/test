@@ -9,10 +9,27 @@
     <!--statement
     没有提示sql数据库名称的话，设置sql方言
     -->
+    <!--sql片段-->
+    <!--
+    <sql id="brand_column">
+         id , brand_name, company_name as companyName, ordered, description, status
+    </sql>
     <select id="selectAll" resultType="brand">
-        select *
+        select
+        <include refid="brand_column"/>
         from tb_brand;
     </select>
-    
-
+    -->
+    <!-- ResultMap id 唯一标识 type 映射的类型 -->
+    <resultMap id="brandResultMap" type="brand">
+        <!--column：列的名称，Properties：实体类属性的名称-->
+        <!--id 完成主键字段的映射，result 完成一般字段的映射-->
+        <result column="company_name" property="companyName"/>
+    </resultMap>
+    <!--定义resultMap标签，在select标签中使用resultMap属性替换，resultType属性-->
+    <select id="selectAll" resultMap="brandResultMap">
+        select
+        *
+        from tb_brand;
+    </select>
 </mapper>

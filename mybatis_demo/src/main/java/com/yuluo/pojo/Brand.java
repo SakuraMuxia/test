@@ -6,7 +6,7 @@ public class Brand {
     // 品牌名称
     private String brand_name;
     // 企业名称
-    private String company_name;
+    private String companyName;
     // 排序字段
     private Integer ordered;
     // 描述信息
@@ -22,12 +22,12 @@ public class Brand {
         this.brand_name = brand_name;
     }
 
-    public String getCompany_name() {
-        return company_name;
+    public String getCompanyName() {
+        return companyName;
     }
 
-    public void setCompany_name(String company_name) {
-        this.company_name = company_name;
+    public void setCompanyName(String companyName) {
+        this.companyName = companyName;
     }
 
     public Integer getId() {
@@ -67,7 +67,7 @@ public class Brand {
         return "Brand{" +
                 "id=" + id +
                 ", brand_name='" + brand_name + '\'' +
-                ", company_name='" + company_name + '\'' +
+                ", companyName='" + companyName + '\'' +
                 ", ordered=" + ordered +
                 ", description='" + description + '\'' +
                 ", status=" + status +
