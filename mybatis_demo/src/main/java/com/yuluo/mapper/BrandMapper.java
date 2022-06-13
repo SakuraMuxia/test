@@ -25,4 +25,16 @@ public interface BrandMapper {
 
     //动态条件查询的方法4 Map集合参数
     List<Brand> selectByConditionDynamic(Map map);
+    /*单条件动态查询*/
+    List<Brand> selectByConditionSingle(Brand brand);
+    //添加sql
+    void add(Brand brand);
+    //修改功能
+    int update(Brand brand);
+    //动态修改功能
+//    int update(Brand brand);
+    //删除功能
+    void deleteById(int id);
+    //批量删除
+    void deleteByIds(@Param("ids") int[] ids);
 }
